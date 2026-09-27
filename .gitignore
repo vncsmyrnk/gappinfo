@@ -1,0 +1,14 @@
+.deps
+aclocal.m4
+/autom4te.cache
+/compile
+/config.*
+/configure
+/configure~
+depcomp
+/gappinfo
+*.o
+install-*
+Makefile
+Makefile.in
+missing

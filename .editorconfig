@@ -1,0 +1,5 @@
+root = true
+
+[*.{c,ac}]
+indent_style = spaces
+indent_size = 4
