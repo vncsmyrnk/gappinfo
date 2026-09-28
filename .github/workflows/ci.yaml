@@ -1,0 +1,26 @@
+name: CI workflow
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y libglib2.0-dev
+
+      - name: Bootstrap the build system
+        run: autoreconf --install --force
+
+      - name: Configure
+        run: ./configure --with-preset=${{ matrix.preset }}
+
+      - name: Build
+        run: make
+
+      - name: Run Distcheck
+        run: make distcheck
